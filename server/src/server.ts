@@ -5,7 +5,7 @@ import cors from 'cors';
 import userRouter from './routes/userRouter';
 
 const app = express();
-app.use(cors({origin:'http://localhost:5173'}));
+app.use(cors());
 //connection to db
 const dbUrl=process.env.DB_URL as string;
 const port = +process.env.PORT!

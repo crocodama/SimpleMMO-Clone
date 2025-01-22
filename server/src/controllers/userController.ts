@@ -9,14 +9,18 @@ export async function register(
   try {
     console.log(req.body);
     const user = new User(req.body);
-
-    const error = user.validateSync();
-    if (error) {
-    //     console.log("shlomot:.....................................................................................................")
-    //   next(new Error(error.message));
-        res.status(500).send({error: error.message});
-        return;
+    if(!user.email || !user.username || !user.password){
+      res.status(400).send({error: "missing required fields"});
+      return;
     }
+
+    // const error = user.validateSync();
+    // if (error) {
+    // //     console.log("shlomot:.....................................................................................................")
+    // //   next(new Error(error.message));
+    //     res.status(500).send({error: error.message});
+    //     return;
+    // }
     user.save();
     console.log("user saved");
   } catch (err) {

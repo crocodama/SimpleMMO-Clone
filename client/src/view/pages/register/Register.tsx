@@ -8,7 +8,13 @@ export default function Register() {
     e.preventDefault();
     // send registration data to server
     console.log(form);
-    const res = await fetch("http://localhost:3000/users/register",{method:"POST", body: JSON.stringify(form)});
+    const res = await fetch("http://localhost:3000/users/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(form)
+    });
     const data = await res.json();
     console.log(data)
     console.log("Registration data sent");
