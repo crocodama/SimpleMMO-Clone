@@ -4,6 +4,7 @@ export default function Register() {
   const [form, setForm] = useState({ email: "", username: "", password: "" });
 
   const handleRegister: FormEventHandler = async (e) => {
+    try {
     e.preventDefault();
     // send registration data to server
     console.log(form);
@@ -13,6 +14,10 @@ export default function Register() {
     console.log("Registration data sent");
     // redirect to login page
     //window.location.href = '/login'
+    }
+    catch (error) {
+      console.error(error);
+    }
   };
 
   return (
