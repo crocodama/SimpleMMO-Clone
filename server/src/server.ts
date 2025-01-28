@@ -3,9 +3,10 @@ import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import cors from 'cors';
 import userRouter from './routes/userRouter';
+import { errorMiddleware } from './controllers/middlewares/errorMidlleware';
 
 const app = express();
-app.use(cors());
+app.use(cors({origin: 'http://localhost:5173',credentials: true}));
 //connection to db
 const dbUrl=process.env.DB_URL as string;
 const port = +process.env.PORT!
@@ -20,10 +21,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use('/users',userRouter);
-app.use((err:any, req:Request, res:Response, next:NextFunction) => {
-  console.error(err ,"hi")
-  res.status(500).send('Something broke!')
-})
+app.use(errorMiddleware);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })

@@ -38,12 +38,12 @@ const UserSchema: Schema = new Schema<IUser>({
   defence: { type: Number, default: 5 },
   magicDefence: { type: Number, default: 5 },
   health: { type: Number, default: 5 },
-  helmet: { type: Schema.Types.ObjectId, ref: "Item", default: "" },
-  armor: { type: Schema.Types.ObjectId, ref: "Item", default: "" },
-  pants: { type: Schema.Types.ObjectId, ref: "Item",default: "" },
-  boots: { type: Schema.Types.ObjectId, ref: "Item",default: "" },
-  trinket1: { type: Schema.Types.ObjectId, ref: "Item",default: "" },
-  trinket2: { type: Schema.Types.ObjectId, ref: "Item",default: "" },
+  helmet: { type: Schema.Types.ObjectId, ref: "Item", default: null },
+  armor: { type: Schema.Types.ObjectId, ref: "Item", default: null },
+  pants: { type: Schema.Types.ObjectId, ref: "Item",default: null },
+  boots: { type: Schema.Types.ObjectId, ref: "Item",default: null },
+  trinket1: { type: Schema.Types.ObjectId, ref: "Item",default: null },
+  trinket2: { type: Schema.Types.ObjectId, ref: "Item",default: null },
   image: { type: String, default: "" },
 });
 
