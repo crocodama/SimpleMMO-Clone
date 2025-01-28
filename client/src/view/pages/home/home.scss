@@ -1,0 +1,16 @@
+.logoDiv{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
+.content {
+    margin-top: 20px;
+    width: 50%;
+    margin: auto;
+}
